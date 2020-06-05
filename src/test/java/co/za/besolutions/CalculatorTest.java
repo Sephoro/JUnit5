@@ -10,10 +10,15 @@ import static org.junit.jupiter.api.Assumptions.*;
 class CalculatorTest {
 
     private Calculator calculator;
+    private TestReporter testReporter;
+    private TestInfo testInfo;
 
     @BeforeEach
-    void init(){
+    void init(TestInfo testInfo, TestReporter testReporter){
+        this.testInfo = testInfo;
+        this.testReporter = testReporter;
         calculator = new Calculator();
+        testReporter.publishEntry("Running " + testInfo.getDisplayName() + " with tag " + testInfo.getTags());
     }
 
     @Nested
@@ -24,7 +29,6 @@ class CalculatorTest {
         @Test
         @DisplayName("when adding a number and zero")
         void addToZeroTest() {
-
             double expected = 5;
             double actual = calculator.add(0,5);
 
