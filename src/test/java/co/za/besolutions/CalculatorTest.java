@@ -1,6 +1,6 @@
 package co.za.besolutions;
 
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,7 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CalculatorTest {
 
-    private Calculator calculator = new Calculator();
+    private Calculator calculator;
+
+    @BeforeEach
+    void init(){
+        calculator = new Calculator();
+    }
 
     @Test
     void addTest() {
