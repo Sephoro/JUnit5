@@ -1,6 +1,7 @@
 package co.za.besolutions;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,6 +17,7 @@ class CalculatorTest {
     }
 
     @Test
+    @DisplayName("Two numbers can be added")
     void addTest() {
 
         double expected = 10;
@@ -25,6 +27,7 @@ class CalculatorTest {
     }
 
     @Test
+    @DisplayName("Two numbers can be multiplied")
     void multiplyTest(){
 
         double expected = 10;
@@ -33,6 +36,7 @@ class CalculatorTest {
     }
 
     @Test
+    @DisplayName("The Area of a Circle can be computed")
     void computeCircleAreaTest(){
 
         double expected = Math.PI*5*5;
@@ -41,6 +45,7 @@ class CalculatorTest {
     }
 
     @Test
+    @DisplayName("Dividing By Zero Throws DivideByZeroException")
     void divideTest(){
 
         assertThrows(Calculator.DivisionByZero.class, () -> calculator.divide(1,0), "Division by zero throws DivideByZeroException");
