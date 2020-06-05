@@ -30,7 +30,7 @@ class CalculatorTest {
             double expected = 5;
             double actual = calculator.add(0,5);
 
-            assertEquals(expected, actual, "should return the number");
+            assertEquals(expected, actual, () -> "should return the number");
         }
 
         @Test
@@ -40,7 +40,7 @@ class CalculatorTest {
             double expected = 10;
             double actual = calculator.add(5,5);
 
-            assertEquals(expected, actual, "should return the correct positive sum");
+            assertEquals(expected, actual, () -> "should return the correct positive sum");
         }
 
         
@@ -51,7 +51,7 @@ class CalculatorTest {
             double expected = -5;
             double actual = calculator.add(-10,5);
 
-            assertEquals(expected, actual, "should return the right sum");
+            assertEquals(expected, actual, () -> "should return the right sum");
         }
 
         @Test
@@ -61,7 +61,7 @@ class CalculatorTest {
             double expected = -15;
             double actual = calculator.add(-10,-5);
 
-            assertEquals(expected, actual, "should return a negative correct sum");
+            assertEquals(expected, actual, () -> "should return a negative correct sum");
         }
 
 
@@ -77,7 +77,7 @@ class CalculatorTest {
 
             double expected = 0;
             double actual = calculator.multiply(50000,0);
-            assertEquals(expected, actual, "should return zero");
+            assertEquals(expected, actual, () -> "should return zero");
         }
 
         @Test
@@ -86,7 +86,7 @@ class CalculatorTest {
 
             double expected = 15;
             double actual = calculator.multiply(5,3);
-            assertEquals(expected, actual, "should return a positive correct product");
+            assertEquals(expected, actual, () -> "should return a positive correct product");
         }
 
         @Test
@@ -95,7 +95,7 @@ class CalculatorTest {
 
             double expected = -15;
             double actual = calculator.multiply(-5,3);
-            assertEquals(expected, actual, "should return a negative correct product");
+            assertEquals(expected, actual, () -> "should return a negative correct product");
         }
 
         @Test
@@ -104,7 +104,7 @@ class CalculatorTest {
 
             double expected = 15;
             double actual = calculator.multiply(-5,-3);
-            assertEquals(expected, actual, "should return a positive correct product");
+            assertEquals(expected, actual, () -> "should return a positive correct product");
         }
         
     }
@@ -116,7 +116,7 @@ class CalculatorTest {
 
         double expected = Math.PI*5*5;
         double actual = calculator.computeCircleArea(5);
-        assertEquals(expected, actual, "should return the correct area");
+        assertEquals(expected, actual, () -> "should return the correct area");
     }
     
     @Nested
@@ -127,7 +127,7 @@ class CalculatorTest {
         @DisplayName("when dividing by zero")
         void divideExceptionTest(){
 
-            assertThrows(Calculator.DivisionByZero.class, () -> calculator.divide(1,0), "should throw DivideByZeroException");
+            assertThrows(Calculator.DivisionByZero.class, () -> calculator.divide(1,0), () -> "should throw DivideByZeroException");
         }
 
         @Test
@@ -139,7 +139,7 @@ class CalculatorTest {
             double expected = 2.5;
             double actual = calculator.divide(5,2);
             assumeTrue(isServerUp, "assuming the server is up");
-            assertEquals(expected, actual, "should return the correct quotient");
+            assertEquals(expected, actual, () -> "should return the correct quotient");
         }
         
     }
