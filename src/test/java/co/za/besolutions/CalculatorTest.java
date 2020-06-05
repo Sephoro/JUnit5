@@ -1,9 +1,6 @@
 package co.za.besolutions;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -21,6 +18,7 @@ class CalculatorTest {
 
     @Nested
     @DisplayName("add method")
+    @Tag("Add")
     class AddTest{
 
         @Test
@@ -69,6 +67,7 @@ class CalculatorTest {
     
     @Nested
     @DisplayName("multiply method")
+    @Tag("Multiply")
     class MultiplyTest{
 
         @Test

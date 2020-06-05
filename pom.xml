@@ -36,6 +36,12 @@
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.1</version>
+                <configuration>
+                    <!-- include tags -->
+                    <groups>Add</groups>
+                    <!-- exclude tags -->
+                    <excludedGroups>Multiply</excludedGroups>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
