@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CalculatorTest {
 
@@ -33,4 +34,11 @@ class CalculatorTest {
         double actual = calculator.computeCircleArea(5);
         assertEquals(expected, actual, "Should calculate the area of a circle");
     }
+
+    @Test
+    void divideTest(){
+
+        assertThrows(Calculator.DivisionByZero.class, () -> calculator.divide(1,0), "Division by zero throws DivideByZeroException");
+    }
+
 }
