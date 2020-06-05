@@ -9,6 +9,7 @@
 .settings/
 .classpath
 .project
+.vscode/
 
 # CMake
 cmake-build-*/
