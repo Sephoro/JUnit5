@@ -5,6 +5,11 @@
 *.iml
 *.ipr
 
+# VScode
+.settings/
+.classpath
+.project
+
 # CMake
 cmake-build-*/
 
