@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
+import static org.junit.jupiter.api.Assumptions.*;
 class CalculatorTest {
 
     private Calculator calculator;
@@ -46,9 +46,20 @@ class CalculatorTest {
 
     @Test
     @DisplayName("Dividing By Zero Throws DivideByZeroException")
-    void divideTest(){
+    void divideExceptionTest(){
 
         assertThrows(Calculator.DivisionByZero.class, () -> calculator.divide(1,0), "Division by zero throws DivideByZeroException");
     }
 
+    @Test
+    @DisplayName("Two Numbers can be divided")
+    void divideTest() throws Calculator.DivisionByZero {
+
+        boolean isServerUp = true;
+
+        double expected = 2.5;
+        double actual = calculator.divide(5,2);
+        assumeTrue(isServerUp, "The test must be executed only when the server is up");
+        assertEquals(expected, actual, "Two Numbers should be divided");
+    }
 }
